@@ -28,7 +28,7 @@
         "eslint-config-prettier": "^5.0.0",
         "eslint-plugin-json": "^1.4.0",
         "eslint-plugin-prettier": "^3.1.0",
-        "husky": "^2.4.1",
+        "husky": "^8.0.0",
         "jest": "^29.2.2",
         "prettier": "^1.18.2"
     },
@@ -36,10 +36,11 @@
         "compile": "npx nexe index.js --output bin/npm-pack-all",
         "release": "npm config set loglevel verbose && npm publish --registry=https://registry.npmjs.org",
         "lint": "eslint . --fix",
-        "husky": "yarn lint && yarn test",
+        "husky": "npm run lint && npm test",
         "test": "jest",
         "deploy": "pkg . --options expose-gc --out-path bin ",
-        "env": "printenv"
+        "env": "printenv",
+        "prepare": "husky install"
     },
     "husky": {
         "hooks": {
